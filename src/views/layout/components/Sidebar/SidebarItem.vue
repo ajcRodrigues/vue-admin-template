@@ -43,7 +43,7 @@ export default {
   name: 'SidebarItem',
   components: { Item },
   props: {
-    // route配置json
+    // Route configuration json
     item: {
       type: Object,
       required: true

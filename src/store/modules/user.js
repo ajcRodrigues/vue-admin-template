@@ -25,7 +25,7 @@ const user = {
   },
 
   actions: {
-    // 登录
+    // Login
     Login({ commit }, userInfo) {
       const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
@@ -40,12 +40,12 @@ const user = {
       })
     },
 
-    // 获取用户信息
+    // Obter informações do usuário
     GetInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
         getInfo(state.token).then(response => {
           const data = response.data
-          if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
+          if (data.roles && data.roles.length > 0) { // Verify that the returned roles are a non-null array
             commit('SET_ROLES', data.roles)
           } else {
             reject('getInfo: roles must be a non-null array !')
@@ -59,7 +59,7 @@ const user = {
       })
     },
 
-    // 登出
+    // Sair
     LogOut({ commit, state }) {
       return new Promise((resolve, reject) => {
         logout(state.token).then(() => {
@@ -73,7 +73,7 @@ const user = {
       })
     },
 
-    // 前端 登出
+    // Frontend
     FedLogOut({ commit }) {
       return new Promise(resolve => {
         commit('SET_TOKEN', '')
